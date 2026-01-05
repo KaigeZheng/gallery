@@ -1,0 +1,60 @@
+copyright = "© Kaige ZHENG"
+defaultContentLanguage = "zh"
+disableKinds = ["taxonomy"]
+enableRobotsTXT = true
+languageCode = "zh"
+timeZone = "Asia/Shanghai"
+timeout = "30s"
+title = "Kambri's Gallery"
+
+[params]
+  defaultTheme = "dark"
+  description = "Kambri's personal gallery powered by Github Pages, Hugo and Gallery."
+  title = "Kambri's Gallery"
+  [params.author]
+    email = "kambrikg@gmail.com"
+    name = "Kaige ZHENG"
+  [params.socialIcons]
+    #facebook = "https://www.facebook.com/"
+    #instagram = "https://www.instagram.com/"
+    github = "https://github.com/KaigeZheng"
+    #youtube = "https://www.youtube.com/"
+    email = "mailto:kambrikg@gmail.com"
+    #website = "https://example.com"
+    #mastodon = "https://example.com"
+    #pixelfed = "https://example.com"
+    #mixcloud = "https://example.com"
+    #flickr = "https://www.flickr.com"
+    #500px = "https://500px"
+    #whatsapp = "1234567890"
+  [params.gallery]
+    #boxSpacing = 10
+    #targetRowHeight = 288
+    #targetRowHeightTolerance = 0.25
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[imaging]
+  quality = 75
+  resampleFilter = "CatmullRom"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    includeFields = "ImageDescription|Orientation"
+
+[module]
+  [module.hugoVersion]
+    min = "0.121.2"
+
+[menu]
+  [[menu.footer]]
+    name = "GitHub"
+    url = "https://github.com/KaigeZheng/gallery"
+    weight = 3
+
+[services]
+  [services.rss]
+    limit = 100
