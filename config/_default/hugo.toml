@@ -6,6 +6,7 @@ languageCode = "zh"
 timeZone = "Asia/Shanghai"
 timeout = "30s"
 title = "Kambri's Gallery"
+baseurl = "https://kambri.top/gallery/"
 
 [params]
   defaultTheme = "dark"
