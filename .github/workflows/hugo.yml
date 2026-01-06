@@ -1,54 +1,52 @@
 name: Deploy to Github Pages
 
 on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.123.0
 
-        permissions:
-            # Give the default GITHUB_TOKEN write permission to commit and push the
-            # added or changed files to the repository.
-            contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+      - name: Cache images
+        id: cache-images
+        uses: actions/cache@v4
+        with:
+          path: ./content
+          key: images-${{ hashFiles('./content/**') }}
 
-            - name: Cache Hugo resources
-              uses: actions/cache@v4
-              env:
-                  cache-name: cache-hugo-resources
-              with:
-                  path: resources
-                  key: ${{ env.cache-name }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "^1.17.0"
 
-            - uses: actions/setup-go@v5
-              with:
-                  go-version: "^1.17.0"
-            - run: go version
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                  hugo-version: "latest"
-                  extended: true
-            
-            - name: Clean
-              run: hugo --cleanDestinationDir
+      - name: Clean
+        run: hugo --cleanDestinationDir
 
-            - name: Build
-              run: hugo --minify --gc
+      - name: Build
+        run: hugo --minify --gc
 
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@v4
-              with:
-                  branch: gh-pages
-                  folder: public
-                  clean: true
-                  single-commit: true
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: public
+          clean: true
+          single-commit: true
