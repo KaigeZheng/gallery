@@ -4,7 +4,7 @@ disableKinds = ["taxonomy"]
 enableRobotsTXT = true
 languageCode = "zh"
 timeZone = "Asia/Shanghai"
-timeout = "30s"
+timeout = "180s"
 title = "Kambri's Gallery"
 baseurl = "https://gallery.kambri.top/"
 
