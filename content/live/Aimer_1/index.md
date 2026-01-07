@@ -2,7 +2,7 @@
 title: Aimer 3 nuits tour 2024 (Shanghai)
 description: Aimer 3 nuits tour 2024 in Shanghai 2024年6月16日 梅赛德斯-奔驰文化中心
 menus: "main"
-weight: 6
+weight: 7
 params:
   theme: dark
   sort_order: asc

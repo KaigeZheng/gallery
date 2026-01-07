@@ -2,7 +2,7 @@
 title: 2024 MARiA Live (Shanghai)
 description: 2024美依礼芽「MARiA」 Live in Shanghai 2024年6月15日 虹馆EH
 menus: "main"
-weight: 7
+weight: 8
 params:
   theme: dark
   sort_order: asc
