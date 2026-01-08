@@ -39,7 +39,7 @@ baseurl = "https://gallery.kambri.top/"
   section = ["HTML"]
 
 [imaging]
-  quality = 75
+  quality = 100
   resampleFilter = "CatmullRom"
   [imaging.exif]
     disableDate = false
